@@ -37,10 +37,5 @@ def maps():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
+    
 # source ~/env/jq/bin/activate
-
-# %%
-
-# %%
