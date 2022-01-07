@@ -27,12 +27,12 @@ def data():
     data = pd.read_csv("data/dataset.csv")
     return render_template('data.html',data=data)
 
-@app.route('/predict', methods=['POST'])
-def klasifikasi():
+@app.route('/predict')
+def predict():
     return render_template('predict.html')
 
 @app.route('/help')
-def maps():
+def help():
      return render_template('help.html')
 
 if __name__ == '__main__':
