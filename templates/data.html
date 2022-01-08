@@ -1,7 +1,7 @@
 <!-- Extend template Layout -->
 {% extends "layout/template.html" %}
 
-Set Active Menu
+<!-- Set Active Menu -->
 {% set active_page = "data" %}
 
 <!-- Title Page Section -->
@@ -31,6 +31,7 @@ HARVEST PREDICTION - DATASET
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SUHU</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KELEMBAPAN</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CURAH HUJAN</th>
@@ -39,55 +40,28 @@ HARVEST PREDICTION - DATASET
                     </tr>
                   </thead>
                   <tbody>
+                    {% for key,value in data.iterrows() %}
                     <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">John Michael</h6>
-                            <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs text-secondary mb-0">Organization</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <p class="text-xs text-secondary mb-0">Organization</p>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-md font-weight-bold"> {{ key+1 }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                            <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <p class="text-xs text-secondary mb-0">Organization</p>
+                        <span class="text-secondary text-md font-weight-bold"> {{ value['SUHU'] }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
+                        <span class="text-secondary text-md font-weight-bold"> {{ value['KELEMBAPAN'] }}</span>
                       </td>
-                      <td class="align-middle">
-    
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-md font-weight-bold"> {{ value['CURAH_HUJAN'] }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-md font-weight-bold"> {{ value['HAMA'] }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-md font-weight-bold"> {{ value['HARGA_CABAI'] }}</span>
                       </td>
                     </tr>
+                    {% endfor %}
                   </tbody>
                 </table>
               </div>
