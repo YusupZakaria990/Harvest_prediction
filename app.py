@@ -8,6 +8,7 @@ import numpy
 import numpy as np
 import random
 import pandas as pd
+import joblib
 import seaborn as sns
 import scipy
 from sklearn import tree
@@ -27,8 +28,14 @@ def data():
     data = pd.read_csv("data/dataset.csv")
     return render_template('data.html',data=data)
 
-@app.route('/predict')
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
+    if request.method == 'POST':
+        loaded_model = joblib.load('data/modelDT.pkl')
+        result = loaded_model.predict([[request.form['suhu'],request.form['kelembapan'],request.form['curah_hujan'],request.form['hama'],request.form['harga']]])
+        return render_template('predict.html' , data=result)
+    else:
+        return render_template('predict.html')
     return render_template('predict.html')
 
 @app.route('/help')

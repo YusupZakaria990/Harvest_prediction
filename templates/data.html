@@ -11,6 +11,8 @@ HARVEST PREDICTION - DATASET
 
 <!-- Css Section -->
 {% block style %}
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
 <style>
 
 </style>
@@ -19,63 +21,90 @@ HARVEST PREDICTION - DATASET
 <!-- Main Section -->
 {% block content %}
 <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-              <h3>Dataset</h3>
-            </div>
-            <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SUHU</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KELEMBAPAN</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CURAH HUJAN</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">HAMA</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">HARGA CABAI</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% for key,value in data.iterrows() %}
-                    <tr>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-md font-weight-bold"> {{ key+1 }}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-md font-weight-bold"> {{ value['SUHU'] }}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-md font-weight-bold"> {{ value['KELEMBAPAN'] }}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-md font-weight-bold"> {{ value['CURAH_HUJAN'] }}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-md font-weight-bold"> {{ value['HAMA'] }}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-md font-weight-bold"> {{ value['HARGA_CABAI'] }}</span>
-                      </td>
-                    </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
-              </div>
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+    navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="#">Pages</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dataset</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Dataset</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <nav aria-label="breadcrumb">
+            <h6 class="font-weight-bolder ms-2 mb-0">Diki Permadi</h6>
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
+              <li class="breadcrumb-item text-sm active" aria-current="page">34111611</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <h3>Dataset</h3>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-3">
+              <table id="example" class="table table-striped" style="width:100%">
+                <thead>
+                  <tr class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    <th>#</th>
+                    <th>SUHU</th>
+                    <th>KELEMBAPAN</th>
+                    <th>CURAH HUJAN</th>
+                    <th>HAMA</th>
+                    <th>HARGA CABAI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for key,value in data.iterrows() %}
+                  <tr>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-md font-weight-bold"> {{ key+1 }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['SUHU'] }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['KELEMBAPAN'] }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['CURAH_HUJAN'] }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['HAMA'] }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['HARGA_CABAI'] }}</span>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 {% endblock %}
 
 <!-- Javascript Section -->
 {% block js %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 <script>
-
+  $(document).ready(function () {
+    $('#example').DataTable();
+  });
 </script>
 {% endblock %}

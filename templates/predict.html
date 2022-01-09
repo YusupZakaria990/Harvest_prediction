@@ -19,26 +19,75 @@ HARVEST PREDICTION - PREDICT
 <!-- Main Section -->
 {% block content %}
 <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-              <h3>PREDICTION</h3>
-            </div>
-            <div class="card-body px-0 pt-0 pb-2">
-              
-            </div>
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+    navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="#">Pages</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Prediction</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Prediction</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <nav aria-label="breadcrumb">
+            <h6 class="font-weight-bolder ms-2 mb-0">Diki Permadi</h6>
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
+              <li class="breadcrumb-item text-sm active" aria-current="page">34111611</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <div class="card-title font-weight-bolder">Form Input</div>
+          </div>
+          <div class="card-body p-3">
+            <form action="{{ url_for('predict')}}" method="POST">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Suhu Udara</label>
+                <input type="number" name="suhu" class="form-control" id="InputSuhu" step="any" min="10" max="30" placeholder="Range 10 - 30">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Kelembapan Udara</label>
+                <input type="number" name="kelembapan" class="form-control" id="" step="1" min="50" max="100" placeholder="Range 50 - 100">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Curah Hujan</label>
+                <input type="number" name="curah_hujan" class="form-control" id="" step="any" min="0.5" max="100" placeholder="Range 0.5 - 150">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Hama</label>
+                <select class="form-control" name="hama">
+                  <option value="" selected disabled>  -- Select -- </option>
+                  <option value="1">Ya</option>
+                  <option value="0">Tidak</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Harga Cabai</label>
+                <input type="number" name="harga" class="form-control" id="" min="10000" max="200000" placeholder="Harga/Kg">
+              </div>
+              <button class="btn btn-outline-primary btn-sm mb-0">View All</button>
+              {{data}}
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 {% endblock %}
 
 <!-- Javascript Section -->
 {% block js %}
 <script>
-
+ 
 </script>
 {% endblock %}
