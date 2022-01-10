@@ -1,0 +1,154 @@
+<!-- Extend template Layout -->
+{% extends "layout/template.html" %}
+
+<!-- Set Active Menu -->
+{% set active_page = "predict" %}
+
+<!-- Title Page Section -->
+{% block title %}
+HARVEST PREDICTION - PREDICT
+{% endblock %}
+
+<!-- Css Section -->
+{% block style %}
+<style>
+  .range-wrap {
+    position: relative;
+    margin: 0 auto 3rem;
+  }
+
+  .range {
+    width: 100%;
+  }
+
+  .bubble {
+    top: 22px;
+    background-image: linear-gradient(310deg, #cb0c9f 0%, #cb0c9f 100%);
+    color: white;
+    padding: 4px 12px;
+    position: absolute;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bubble::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: red;
+    top: -1px;
+    left: 50%;
+  }
+</style>
+{% endblock %}
+
+<!-- Main Section -->
+{% block content %}
+<main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+    navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="#">Pages</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Prediction</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Prediction</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <nav aria-label="breadcrumb">
+            <h6 class="font-weight-bolder ms-2 mb-0">Diki Permadi</h6>
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
+              <li class="breadcrumb-item text-sm active" aria-current="page">34111611</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4 p-4">
+          <div class="card-header pb-0">
+            <h4 class="card-title font-weight-bolder">Form Input</h4>
+          </div>
+          <div class="card-body p-4">
+            <form action="{{ url_for('predict')}}" method="POST">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Suhu Udara</label>
+                <div class="range-wrap">
+                  <input name="suhu" type="range" class="range" min="10" max="40" step="0.1">
+                  <output class="bubble"></output>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Kelembapan Udara</label>
+                <div class="range-wrap">
+                  <input name="kelembapan" type="range" class="range" min="50" max="100" step="1">
+                  <output class="bubble"></output>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Curah Hujan</label>
+                <div class="range-wrap">
+                  <input name="curah_hujan" type="range" class="range" min="0.5" max="100" step="0.1">
+                  <output class="bubble"></output>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Hama</label>
+                <select class="form-control" name="hama">
+                  <option value="" selected disabled> -- Select -- </option>
+                  <option value="1">Ya</option>
+                  <option value="0">Tidak</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Harga Cabai</label>
+                <input type="number" name="harga" class="form-control" id="" min="10000" max="200000"
+                  placeholder="Harga/Kg">
+              </div>
+              <div class="form-group">
+                <button class="btn bg-gradient-primary btn-md px-5 mx-auto mt-4">Klasifikasi</button>
+              </div>
+              
+              {{data}}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
+
+<!-- Javascript Section -->
+{% block js %}
+<script>
+  const allRanges = document.querySelectorAll(".range-wrap");
+  allRanges.forEach(wrap => {
+    const range = wrap.querySelector(".range");
+    const bubble = wrap.querySelector(".bubble");
+
+    range.addEventListener("input", () => {
+      setBubble(range, bubble);
+    });
+    setBubble(range, bubble);
+  });
+
+  function setBubble(range, bubble) {
+    const val = range.value;
+    const min = range.min ? range.min : 0;
+    const max = range.max ? range.max : 100;
+    const newVal = Number(((val - min) * 100) / (max - min));
+    bubble.innerHTML = val;
+
+    // Sorta magic numbers based on size of the native UI thumb
+    bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,133 @@
+<!-- Extend template Layout -->
+{% extends "layout/template.html" %}
+
+<!-- Set Active Menu -->
+{% set active_page = "index" %}
+
+<!-- Title Page Section -->
+{% block title %} HARVEST PREDICTION - DASHBOARD {% endblock %}
+
+<!-- Css Section -->
+{% block style %}
+<style></style>
+{% endblock %}
+
+<!-- Main Section -->
+{% block content %}
+<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+  <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
+    <div class="container-fluid py-1">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="#">Pages</a></li>
+          <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+        </ol>
+        <h6 class="text-white font-weight-bolder ms-2">Dashboard</h6>
+      </nav>
+      <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <nav aria-label="breadcrumb">
+            <h6 class="text-white font-weight-bolder ms-2 mb-0">Diki Permadi</h6>
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
+              <li class="breadcrumb-item text-sm text-white active" aria-current="page">34111611</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="page-header min-height-400 border-radius-xl mt-4" style="background-image: url('../static/assets/img/3528492.jpg'); background-position-y: 30%">
+      <span class="mask bg-gradient-primary opacity-6"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="col-4">
+        <div class="row">
+          <div class="col-auto">
+            <div class="avatar avatar-xl position-relative">
+              <img src="../static/assets/img/unjani.png" alt="profile_image" class="w-100 border-radius-lg shadow-sm" />
+            </div>
+          </div>
+          <div class="col-auto my-auto">
+            <div class="h-100">
+              <h5 class="mb-1">Diki Permadi</h5>
+              <p class="mb-0 font-weight-bold text-sm">34111611</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mt-4">
+    <div class="card mb-4">
+      <div class="card-header pb-0 p-3">
+        <h6 class="mb-1">PERANCANGAN MODEL PREDIKSI HASIL PANEN CABAI RAWAIT</h6>
+        <p class="text-sm">Diagram Model, Perolehan Data, Metode</p>
+      </div>
+      <div class="card-body p-3">
+        <div class="row">
+          <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+            <div class="card card-blog card-plain">
+              <div class="position-relative">
+                <a class="d-block shadow-xl border-radius-xl">
+                  <img src="../static/assets/img/dm.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl" />
+                </a>
+              </div>
+              <div class="card-body px-1 pb-0">
+                <a href="javascript:;">
+                  <h5>Diagram Model</h5>
+                </a>
+                <p class="mb-4 text-sm">As Uber works through a huge amount of internal management turmoil.</p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <button type="button" class="btn btn-outline-primary btn-sm mb-0">Lihat</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+            <div class="card card-blog card-plain">
+              <div class="position-relative">
+                <a class="d-block shadow-xl border-radius-xl">
+                  <img src="../static/assets/img/rt.png" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" />
+                </a>
+              </div>
+              <div class="card-body px-1 pb-0">
+                <a href="javascript:;">
+                  <h5>Distribusi Data</h5>
+                </a>
+                <p class="mb-4 text-sm">Music is something that every person has his or her own specific opinion.</p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <button type="button" class="btn btn-outline-primary btn-sm mb-0">Lihat</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+            <div class="card card-blog card-plain">
+              <div class="position-relative">
+                <a class="d-block shadow-xl border-radius-xl">
+                  <img src="../static/assets/img/Gain.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl" />
+                </a>
+              </div>
+              <div class="card-body px-1 pb-0">
+                <a href="javascript:;">
+                  <h5>Metode</h5>
+                </a>
+                <p class="mb-4 text-sm">Different people have different taste, and various types of music.</p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <button type="button" class="btn btn-outline-primary btn-sm mb-0">Lihat</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- Javascript Section -->
+{% block js %}
+<script></script>
+{% endblock %}
