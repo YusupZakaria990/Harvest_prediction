@@ -35,8 +35,10 @@ def predict():
         result = loaded_model.predict([[request.form['suhu'],request.form['kelembapan'],request.form['curah_hujan'],request.form['hama'],request.form['harga']]])
         return render_template('predict.html' , data=result)
     else:
-        return render_template('predict.html')
-    return render_template('predict.html')
+        result = ''
+        return render_template('predict.html', data=result)
+        result = ''
+    return render_template('predict.html',data=result)
 
 @app.route('/help')
 def help():
