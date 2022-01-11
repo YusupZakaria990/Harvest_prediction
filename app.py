@@ -37,7 +37,6 @@ def predict():
     else:
         result = ''
         return render_template('predict.html', data=result)
-        result = ''
     return render_template('predict.html',data=result)
 
 @app.route('/help')
