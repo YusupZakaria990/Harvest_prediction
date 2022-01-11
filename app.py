@@ -34,10 +34,6 @@ def predict():
         loaded_model = joblib.load('data/modelDT.pkl')
         result = loaded_model.predict([[request.form['suhu'],request.form['kelembapan'],request.form['curah_hujan'],request.form['hama'],request.form['harga']]])
         return render_template('predict.html' , data=result)
-<<<<<<< HEAD
-    
-=======
->>>>>>> 22ec80b16f89b84777c089eeefb3bbda51899ac0
     else:
         result = ''
         return render_template('predict.html', data=result)
