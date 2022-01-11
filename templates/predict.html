@@ -113,17 +113,10 @@ HARVEST PREDICTION - PREDICT
                   placeholder="Harga/Kg">
               </div>
               <div class="form-group">
-                <button class="btn bg-gradient-primary btn-md px-5 mx-auto mt-4">Prediksi</button>
+                <button class="btn bg-gradient-primary btn-md px-5 mx-auto mt-4">Klasifikasi</button>
               </div>
-              {% if data == 1: %}
-              <div class="alert alert-success text-white" role="alert">
-                Label True
-              </div>
-              {% elif data == 0: %}
-              <div class="alert alert-danger text-white" role="alert">
-                Label False
-              </div>
-              {% endif %}
+              
+              {{data}}
             </form>
           </div>
         </div>
