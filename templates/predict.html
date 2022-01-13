@@ -79,49 +79,34 @@ HARVEST PREDICTION - PREDICT
           <div class="card-body p-4">
             <form action="{{ url_for('predict')}}" method="POST">
               <div class="form-group">
-                <label for="exampleFormControlInput1">Suhu Udara</label>
-                <div class="range-wrap">
-                  <input name="suhu" type="range" class="range" min="10" max="40" step="0.1">
-                  <output class="bubble"></output>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Kelembapan Udara</label>
-                <div class="range-wrap">
-                  <input name="kelembapan" type="range" class="range" min="50" max="100" step="1">
-                  <output class="bubble"></output>
-                </div>
+                <label for="exampleFormControlInput1">Luas Tanam Baru</label>
+                <input type="number" name="ltb" class="form-control" id="" min="1" max="100"
+                  placeholder="Hektar">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Curah Hujan</label>
-                <div class="range-wrap">
-                  <input name="curah_hujan" type="range" class="range" min="0.5" max="100" step="0.1">
-                  <output class="bubble"></output>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Hama</label>
-                <select class="form-control" name="hama">
+                <select class="form-control" name="ch">
                   <option value="" selected disabled> -- Select -- </option>
-                  <option value="1">Ya</option>
-                  <option value="0">Tidak</option>
+                  <option value="2">Rendah</option>
+                  <option value="1">Sedang</option>
+                  <option value="3">Tinggi</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Harga Cabai</label>
-                <input type="number" name="harga" class="form-control" id="" min="10000" max="200000"
-                  placeholder="Harga/Kg">
+                <label for="exampleFormControlInput1">Total Produksi</label>
+                <input type="number" name="tp" class="form-control" id="" min="100" max="50000"
+                  placeholder="Kwintal">
               </div>
               <div class="form-group">
                 <button class="btn bg-gradient-primary btn-md px-5 mx-auto mt-4">Prediksi</button>
               </div>
-              {% if data == 1: %}
+              {% if data == 2: %}
               <div class="alert alert-success text-white" role="alert">
-                Label True
+                Meningkat
               </div>
-              {% elif data == 0: %}
+              {% elif data == 1: %}
               <div class="alert alert-danger text-white" role="alert">
-                Label False
+                Tidak
               </div>
               {% endif %}
             </form>

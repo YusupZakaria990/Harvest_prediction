@@ -31,8 +31,8 @@ def data():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
-        loaded_model = joblib.load('data/modelDT.pkl')
-        result = loaded_model.predict([[request.form['suhu'],request.form['kelembapan'],request.form['curah_hujan'],request.form['hama'],request.form['harga']]])
+        loaded_model = joblib.load('data/ModelDT.pkl')
+        result = loaded_model.predict([[request.form['ltb'],request.form['ch'],request.form['tp']]])
         return render_template('predict.html' , data=result)
     else:
         result = ''

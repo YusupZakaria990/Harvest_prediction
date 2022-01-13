@@ -56,11 +56,12 @@ HARVEST PREDICTION - DATASET
                 <thead>
                   <tr class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                     <th>#</th>
-                    <th>SUHU</th>
-                    <th>KELEMBAPAN</th>
+                    <th>KECAMATAN</th>
+                    <th>LUAS TANAM BARU(HA)</th>
+                    <th>PANEN HABIS</th>
+                    <th>PRODUKSI</th>
                     <th>CURAH HUJAN</th>
-                    <th>HAMA</th>
-                    <th>HARGA CABAI</th>
+                    <th>LABEL</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -70,19 +71,22 @@ HARVEST PREDICTION - DATASET
                       <span class="text-secondary text-md font-weight-bold"> {{ key+1 }}</span>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-md font-weight-bold"> {{ value['SUHU'] }}</span>
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['KECAMATAN'] }}</span>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-md font-weight-bold"> {{ value['KELEMBAPAN'] }}</span>
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['LUAS_TANAM_BARU'] }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['PANEN_HABIS'] }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['PRODUKSI'] }}</span>
                     </td>
                     <td class="align-middle text-center">
                       <span class="text-secondary text-md font-weight-bold"> {{ value['CURAH_HUJAN'] }}</span>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-md font-weight-bold"> {{ value['HAMA'] }}</span>
-                    </td>
-                    <td class="align-middle text-center">
-                      <span class="text-secondary text-md font-weight-bold"> {{ value['HARGA_CABAI'] }}</span>
+                      <span class="text-secondary text-md font-weight-bold"> {{ value['LABEL'] }}</span>
                     </td>
                   </tr>
                   {% endfor %}
