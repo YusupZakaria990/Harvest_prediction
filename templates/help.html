@@ -15,6 +15,28 @@
 <!-- Main Section -->
 {% block content %}
 <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+  navbar-scroll="true">
+  <div class="container-fluid py-1 px-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="#">Pages</a></li>
+        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Batuan</li>
+      </ol>
+      <h6 class="font-weight-bolder mb-0">Batuan</h6>
+    </nav>
+    <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+      <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        <nav aria-label="breadcrumb">
+          <h6 class="font-weight-bolder ms-2 mb-0">Diki Permadi</h6>
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm active" aria-current="page">3411161106</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</nav>
   <div class="container-fluid py-4">
     <div class="row">
       <div class="col-12">
@@ -22,8 +44,45 @@
           <div class="card-header pb-0">
             <h3>BANTUAN</h3>
           </div>
-          <div class="card-body px-0 pt-0 pb-2">
-            <p>sdada</p>
+          <div class="card-body p-4">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button border border-white bg-primary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Dashboard
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Berisi tentang informasi umum, seperti diagram model, distribusi data, dan Model Tree
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button border border-white bg-primary text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Dataset
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Halaman yang berisi data-data untuk pelatihan model Decision Tree
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button border border-white bg-primary text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Predisi
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Halaman untuk memprediksi hasil panen melalui inputan data baru
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
